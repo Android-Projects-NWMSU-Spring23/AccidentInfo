@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:title="Menu"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_more">
+        <menu>
+
+            <item
+                android:id="@+id/profileMenu"
+                android:orderInCategory="100"
+                app:showAsAction="never"
+                android:title="Profile"
+                android:icon="@drawable/ic_profile">
+            </item>
+
+            <item
+                android:id="@+id/changePassMenu"
+                android:orderInCategory="600"
+                app:showAsAction="never"
+                android:title="Change Password"
+                android:icon="@drawable/ic_change_password">
+            </item>
+
+            <item
+                android:id="@+id/logoutMenu"
+                android:orderInCategory="600"
+                app:showAsAction="never"
+                android:title="Logout"
+                android:icon="@drawable/ic_logout">
+            </item>
+
+        </menu>
+    </item>
+
+</menu>

@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private Button logout, prepReport, accessFile;
+    private Button logout, prepReport, accessFile, profile;
     private TextView textView;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -36,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         logout = findViewById(R.id.btnLogout);
+        profile = findViewById(R.id.profileBTN);
         prepReport = findViewById(R.id.btn_PrepReport);
         accessFile = findViewById(R.id.btn_AccessFile);
         textView = findViewById(R.id.textView);
@@ -80,17 +81,23 @@ public class HomeActivity extends AppCompatActivity {
         prepReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(HomeActivity.this , ReportPrepareActivity.class));
+                startActivity(new Intent(HomeActivity.this , ReportPrepareActivity.class));
             }
         });
 
         accessFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(HomeActivity.this ,AccessFileActivity.class ));
+                startActivity(new Intent(HomeActivity.this ,AccessFileActivity.class ));
             }
         });
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            }
+        });
     }
 
     private void Logout(){

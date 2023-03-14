@@ -1,40 +1,38 @@
 package com.example.sundari.accidentinfo;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
+import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+
 import java.util.Random;
 public class ReportPrepareActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -257,7 +255,8 @@ public class ReportPrepareActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading....");
         progressDialog.show();
         if (validate()) {
-            //Upload data to the database            myRef = FirebaseDatabase.getInstance().getReference("information/" + fileName);
+            //Upload data to the database
+            myRef = FirebaseDatabase.getInstance().getReference("information/" + fileName);
             Accident_Info info = new Accident_Info(vName , vAge , reason , location , injuries , insuCompany , policyNO , fileName);
             myRef.setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override                public void onComplete(@NonNull Task<Void> task) {
